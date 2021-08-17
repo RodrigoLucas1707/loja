@@ -1,25 +1,59 @@
+using System.Collections.Generic;
+using System.Linq;
+using Loja.API.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Loja.API.Controllers{
     [ApiController]
     [Route("api/[controller]")]
     public class ProdutoController : ControllerBase{
+        public static List<Produto> produtos = new List<Produto>();
         public ProdutoController(){
-
+            // if(produtos.Count <= 0){
+            //     Produto produto = new Produto(){
+            //     Id = 1,
+            //     Nome = "Tênis",
+            //     Estoque = 10,
+            //     Valor = 159.99
+            //     };
+            //     produtos.Add(produto);
+            //     produto = new Produto(){
+            //     Id = 2,
+            //     Nome = "Camiseta",
+            //     Estoque = 5,
+            //     Valor = 59.99
+            //     };
+            //     produtos.Add(produto);
+            //     produto = new Produto(){
+            //     Id = 3,
+            //     Nome = "Boné",
+            //     Estoque = 7,
+            //     Valor = 39.99
+            //     };
+            //     produtos.Add(produto);
+            // }
         }
         [HttpGet]
-        public string Get(){
-            return "Olá Mundo!";
+        public IActionResult Get(){
+            Produto produto = new Produto(){
+                Nome = "Tênis",
+                Estoque = 10,
+                Valor = 159.99
+            };
+            return Ok(produto);
         }
 
         [HttpGet("{id}")]
-        public string Get(int id){
-            return "Olá Mundo!"+id;
+        public IActionResult Get(int id){
+            var produtoSelecionado = produtos.Where(
+                prod => prod.Id == id);
+            return Ok(produtoSelecionado);
         }
 
         [HttpPost]
-        public string Post(){
-            return "Olá Post!";
+        public IActionResult Post([FromBody] Produto novoProduto){
+            produtos.Add(novoProduto);
+            return Created("", novoProduto);
         }
 
         [HttpPut("{id}")]
@@ -28,8 +62,14 @@ namespace Loja.API.Controllers{
         }
 
         [HttpDelete("{id}")]
-        public string Delete(int id){
-            return "Olá Delete!"+id;
+        public IActionResult Delete(int id){
+            if (produtos.Where(p => p.Id == id).Count() > 0){
+                Produto produtoSelecionado = produtos.Where(
+                    p => p.Id == id).ToList()[0];
+                 produtos.Remove(produtoSelecionado);
+                return NoContent();
+            }
+            return NotFound();
         }
     }
 }
