@@ -9,29 +9,29 @@ namespace Loja.API.Controllers{
     public class ProdutoController : ControllerBase{
         public static List<Produto> produtos = new List<Produto>();
         public ProdutoController(){
-            // if(produtos.Count <= 0){
-            //     Produto produto = new Produto(){
-            //     Id = 1,
-            //     Nome = "Tênis",
-            //     Estoque = 10,
-            //     Valor = 159.99
-            //     };
-            //     produtos.Add(produto);
-            //     produto = new Produto(){
-            //     Id = 2,
-            //     Nome = "Camiseta",
-            //     Estoque = 5,
-            //     Valor = 59.99
-            //     };
-            //     produtos.Add(produto);
-            //     produto = new Produto(){
-            //     Id = 3,
-            //     Nome = "Boné",
-            //     Estoque = 7,
-            //     Valor = 39.99
-            //     };
-            //     produtos.Add(produto);
-            // }
+            if(produtos.Count <= 0){
+                Produto produto = new Produto(){
+                Id = 1,
+                Nome = "Tênis",
+                Estoque = 10,
+                Valor = 159.99
+                };
+                produtos.Add(produto);
+                produto = new Produto(){
+                Id = 2,
+                Nome = "Camiseta",
+                Estoque = 5,
+                Valor = 59.99
+                };
+                produtos.Add(produto);
+                produto = new Produto(){
+                Id = 3,
+                Nome = "Boné",
+                Estoque = 7,
+                Valor = 39.99
+                };
+                produtos.Add(produto);
+            }
         }
         [HttpGet]
         public IActionResult Get(){
