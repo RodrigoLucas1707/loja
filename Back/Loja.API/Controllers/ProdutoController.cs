@@ -35,12 +35,12 @@ namespace Loja.API.Controllers{
         }
         [HttpGet]
         public IActionResult Get(){
-            Produto produto = new Produto(){
-                Nome = "Tênis",
-                Estoque = 10,
-                Valor = 159.99
-            };
-            return Ok(produto);
+            // Produto produto = new Produto(){
+            //     Nome = "Tênis",
+            //     Estoque = 10,
+            //     Valor = 159.99
+            //};
+            return Ok(produtos);
         }
 
         [HttpGet("{id}")]
