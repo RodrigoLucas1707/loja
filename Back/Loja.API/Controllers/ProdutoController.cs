@@ -62,11 +62,13 @@ namespace Loja.API.Controllers{
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id){
-            if (produtos.Where(p => p.Id == id).Count() > 0){
-                Produto produtoSelecionado = produtos.Where(
-                    p => p.Id == id).ToList()[0];
-                 produtos.Remove(produtoSelecionado);
+        public IActionResult Delete(int id) {
+            // Selecionar o produto que deverá ser removido
+            Produto produtoSelecionado = produtos.FirstOrDefault(p => p.Id == id);
+            if (produtoSelecionado != null){
+                // Remove o produto da lista
+                produtos.Remove(produtoSelecionado);
+                // Retorna um resultado para o cliente
                 return NoContent();
             }
             return NotFound();
