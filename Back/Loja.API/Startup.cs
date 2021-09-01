@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Loja.API.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,11 +28,17 @@ namespace Loja.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Definir o contexto do BD, qual é o tipo de BD que utilizaremos neste projeto
+            services.AddDbContext<DataContext>(
+                context => context.UseSqlite(
+                    Configuration.GetConnectionString("Default")
+                )
+            );
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Loja API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Loja API - Libertas", Version = "v1" });
             });
         }
 

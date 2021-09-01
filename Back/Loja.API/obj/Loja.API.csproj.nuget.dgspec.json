@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rodri\\Documents\\GitHub\\loja\\Back\\Loja.API\\Loja.API.csproj": {}
+    "C:\\Users\\ferna\\Documents\\GitHub\\loja\\Back\\Loja.API\\Loja.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rodri\\Documents\\GitHub\\loja\\Back\\Loja.API\\Loja.API.csproj": {
+    "C:\\Users\\ferna\\Documents\\GitHub\\loja\\Back\\Loja.API\\Loja.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rodri\\Documents\\GitHub\\loja\\Back\\Loja.API\\Loja.API.csproj",
+        "projectUniqueName": "C:\\Users\\ferna\\Documents\\GitHub\\loja\\Back\\Loja.API\\Loja.API.csproj",
         "projectName": "Loja.API",
-        "projectPath": "C:\\Users\\rodri\\Documents\\GitHub\\loja\\Back\\Loja.API\\Loja.API.csproj",
-        "packagesPath": "C:\\Users\\rodri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rodri\\Documents\\GitHub\\loja\\Back\\Loja.API\\obj\\",
+        "projectPath": "C:\\Users\\ferna\\Documents\\GitHub\\loja\\Back\\Loja.API\\Loja.API.csproj",
+        "packagesPath": "C:\\Users\\ferna\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ferna\\Documents\\GitHub\\loja\\Back\\Loja.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\rodri\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ferna\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -38,6 +38,26 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
